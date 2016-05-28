@@ -45,12 +45,12 @@ Here are my steps for this project.
 #####Activity Labels
     activityLabels <- read.table(file.path(pathDataset, "activity_labels.txt"),header = FALSE)
 
-    names(Data2)<-gsub("^t", "time", names(Data2))
-    names(Data2)<-gsub("^f", "frequency", names(Data2))
-    names(Data2)<-gsub("Acc", "Accelerometer", names(Data2))
-    names(Data2)<-gsub("Gyro", "Gyroscope", names(Data2))
-    names(Data2)<-gsub("Mag", "Magnitude", names(Data2))
-    names(Data2)<-gsub("BodyBody", "Body", names(Data2))
+    names(Data2) <- gsub("^t", "time", names(Data2))
+    names(Data2) <- gsub("^f", "frequency", names(Data2))
+    names(Data2) <- gsub("Acc", "Accelerometer", names(Data2))
+    names(Data2) <- gsub("Gyro", "Gyroscope", names(Data2))
+    names(Data2) <- gsub("Mag", "Magnitude", names(Data2))
+    names(Data2) <- gsub("BodyBody", "Body", names(Data2))
 
 #####Second Tidy Data
     library(dplyr)
