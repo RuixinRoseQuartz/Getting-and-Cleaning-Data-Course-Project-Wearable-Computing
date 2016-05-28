@@ -4,15 +4,16 @@ There are files with just data and files with just variable names etc.
 Here are my steps for this project.
 
 #####Load Data Into R
-'''if(!file.exists("./data")){dir.create("./data")}
-fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-download.file(fileUrl, destfile="./data/UCI_Dataset.zip", method="curl")
-unzip(zipfile="./data/UCI_Dataset.zip",exdir="./data")
-'''
+    if(!file.exists("./data")){dir.create("./data")}
+    fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+    download.file(fileUrl, destfile="./data/UCI_Dataset.zip", method="curl")
+    unzip(zipfile="./data/UCI_Dataset.zip",exdir="./data")
 
 To check if the file is in the Data directory
-pathDataset <- file.path("./data", "UCI HAR Dataset")
-list.files(pathDataset, recursive=TRUE)
+    pathDataset <- file.path("./data", "UCI HAR Dataset")
+
+To view the files in the downloaded dataset
+    list.files(pathDataset, recursive=TRUE)
 
 #####Extract the appropriate files for Test
 testActivity  <- read.table(file.path(pathDataset, "test" , "y_test.txt" ), header = FALSE)
