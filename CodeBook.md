@@ -39,8 +39,8 @@ Here are my steps for this project.
 
 #####Extract The Measurements On Mean & Standard Deviation
     subsetDataNames <- dataFeaturesNames$V2[grep("mean\\(\\)|std\\(\\)", dataFeaturesNames$V2)]
-    selectedNames<-c(as.character(subsetDataNames), "subject", "activity" )
-    Data2<-subset(Data,select=selectedNames)
+    selectedNames <- c(as.character(subsetDataNames), "subject", "activity" )
+    Data2 <- subset(Data,select=selectedNames)
 
 #####Activity Labels
     activityLabels <- read.table(file.path(pathDataset, "activity_labels.txt"),header = FALSE)
@@ -57,4 +57,4 @@ Here are my steps for this project.
     groupData <- Data2 %>%
         group_by(subject, activity) %>%
         summarise_each(funs(mean))
-    write.table(avgTidyData, file = "tidydata.txt",row.name=FALSE)
+     write.table(groupData, file = "./data/tidydata.txt",row.name=FALSE)
