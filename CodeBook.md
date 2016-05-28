@@ -9,22 +9,18 @@ Here are my steps for this project.
     download.file(fileUrl, destfile="./data/UCI_Dataset.zip", method="curl")
     unzip(zipfile="./data/UCI_Dataset.zip",exdir="./data")
 
-To check if the file is in the Data directory
+To check if the file is in the Data directory and to view the files in the downloaded dataset
     pathDataset <- file.path("./data", "UCI HAR Dataset")
-
-To view the files in the downloaded dataset
     list.files(pathDataset, recursive=TRUE)
 
-#####Extract the appropriate files for Test
-testActivity  <- read.table(file.path(pathDataset, "test" , "y_test.txt" ), header = FALSE)
-testSubject  <- read.table(file.path(pathDataset, "test" , "subject_test.txt"), header = FALSE)
-testFeatures  <- read.table(file.path(pathDataset, "test" , "X_test.txt" ), header = FALSE)
+#####Extract Appropriate Files For Test & Train
+    testActivity  <- read.table(file.path(pathDataset, "test" , "y_test.txt" ), header = FALSE)
+    testSubject  <- read.table(file.path(pathDataset, "test" , "subject_test.txt"), header = FALSE)
+    testFeatures  <- read.table(file.path(pathDataset, "test" , "X_test.txt" ), header = FALSE)
 
-
-#####Extract the appropriate files for Train
-trainActiviy <- read.table(file.path(pathDataset, "train", "y_train.txt"), header = FALSE)
-trainSubject <- read.table(file.path(pathDataset, "train", "subject_train.txt"), header = FALSE)
-trainFeatures <- read.table(file.path(pathDataset, "train", "X_train.txt"), header = FALSE)
+    trainActiviy <- read.table(file.path(pathDataset, "train", "y_train.txt"), header = FALSE)
+    trainSubject <- read.table(file.path(pathDataset, "train", "subject_train.txt"), header = FALSE)
+    trainFeatures <- read.table(file.path(pathDataset, "train", "X_train.txt"), header = FALSE)
 
 ###Merging the test and the train datasets
 Activity <- rbind(trainActiviy, testActivity)
